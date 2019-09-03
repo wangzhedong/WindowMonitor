@@ -1,0 +1,26 @@
+2019-08-12 22:52:47: True
+2019-08-12 22:56:01: True
+2019-08-12 22:57:55: System.Exception: 热键已经被注册!
+   在 WpfApp.HotKey..ctor(Window win, KeyFlags control, Keys key) 位置 D:\C#-project\WpfApp\HotKey.cs:行号 59
+   在 WpfApp.MonitorUSB.Window_Loaded(Object sender, RoutedEventArgs e) 位置 D:\C#-project\WpfApp\MonitorUSB.xaml.cs:行号 187
+2019-08-12 22:59:31: True
+2019-08-12 22:59:38: System.Exception: 热键已经被注册!
+   在 WpfApp.HotKey..ctor(Window win, KeyFlags control, Keys key) 位置 D:\C#-project\WpfApp\HotKey.cs:行号 59
+   在 WpfApp.MonitorUSB.Window_Loaded(Object sender, RoutedEventArgs e) 位置 D:\C#-project\WpfApp\MonitorUSB.xaml.cs:行号 188
+2019-08-12 23:04:26: True
+2019-08-12 23:09:37: True
+2019-08-12 23:18:17: True
+2019-08-12 23:20:36: True
+2019-08-12 23:36:00: True
+2019-08-12 23:38:01: True
+2019-08-12 23:55:56: True
+2019-08-12 23:57:08: True
+2019-08-13 00:01:21: True
+2019-08-19 22:06:35: True
+2019-08-19 22:08:44: True
+2019-08-19 22:20:27: True
+2019-08-19 22:29:01: True
+2019-08-19 22:43:01: True
+2019-09-03 20:27:24: True
+2019-09-03 20:29:43: True
+2019-09-03 21:03:07: True
