@@ -27,20 +27,23 @@ namespace WpfApp
                 return;
             }
             bool IsStart = true;
-            string currentDirectory = Environment.CurrentDirectory;
-            string exePath = currentDirectory+ "\\"+exeName+".exe autoStart";
+            string currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            string exePath = currentDirectory+exeName+".exe autoStart";
             bool exist = AutoStart.IsExistKey(exeName, exePath);
             //开机自启动的时候是带参数启动的，当第一个参数是autoStart时，自动隐藏窗口
             if (e.Args.Length > 0 && (e.Args[0].Equals("autoStart")))
             {
+                LogUtils.writeLog("App:36:开机自启动并隐藏窗口");
                 isHideWindow = true;
             }
             if (!exist && IsStart)
             {
+                LogUtils.writeLog("App:41:注册开机自启动注册表"+ exePath);
                 AutoStart.SelfRunning(IsStart, exeName, exePath);
             }
             else if (exist && !IsStart)
             {
+                LogUtils.writeLog("App:45:注册开机自启动注册表" + exePath);
                 AutoStart.SelfRunning(!IsStart, exeName, exePath);
             }
  

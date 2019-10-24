@@ -12,9 +12,9 @@ namespace WpfApp
         //文件读取
         public List<string> readDataFile(bool isShowMsg)
         {
-            string currentDirectory = Environment.CurrentDirectory;
+            string currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
             List<string> list = new List<string>();
-            String path = currentDirectory + "\\U.DAT";// 要读取的文件
+            String path = currentDirectory + "U.DAT";// 要读取的文件
             //判断是否含有指定文件
             if (File.Exists(path))
             {
@@ -49,8 +49,8 @@ namespace WpfApp
         public bool writeDataFile(string str)
         {
             bool flag = false;
-            string currentDirectory = Environment.CurrentDirectory;
-            String saveFile = currentDirectory + "\\U.DAT";//要保存的文件
+            string currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            String saveFile = currentDirectory + "U.DAT";//要保存的文件
             FileStream writeStream = File.Create(saveFile);
             //FileStream writeStream = File.OpenWrite(saveFile);// 以写的方式打开
 

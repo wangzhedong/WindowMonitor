@@ -1,19 +1,19 @@
-﻿WpfApp
+﻿WindowsMonitor
 
 
 winexe
 C#
 .cs
-D:\C#-project\WpfApp\obj\Debug\
+D:\C#-project\WpfApp\obj\Release\
 WpfApp
 none
 false
-DEBUG;TRACE
+TRACE
 D:\C#-project\WpfApp\App.xaml
 3-2105380088
 
-16-521286499
-151114131006
+17-83413811
+14457497275
 PasswordWindow.xaml;MonitorUSB.xaml;WindowUSB.xaml;
 
 False

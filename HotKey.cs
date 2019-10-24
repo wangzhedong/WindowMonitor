@@ -56,12 +56,14 @@ namespace WpfApp
             KeyId = (int)Controlkey + (int)Key * 10;
             if (HotKey.KeyPair.ContainsKey(KeyId))
             {
+                LogUtils.writeLog("HotKey:59:热键已经被注册");
                 throw new Exception("热键已经被注册!");
             }
 
             //注册热键
             if (false == HotKey.RegisterHotKey(Handle, KeyId, Controlkey, Key))
             {
+                LogUtils.writeLog("HotKey:66:热键注册失败!");
                 throw new Exception("热键注册失败!");
             }
             if (HotKey.KeyPair.Count == 0)
@@ -69,6 +71,7 @@ namespace WpfApp
                 //消息挂钩只能连接一次!!
                 if (false == InstallHotKeyHook(this))
                 {
+                    LogUtils.writeLog("HotKey:74:消息挂钩连接失败!");
                     throw new Exception("消息挂钩连接失败!");
                 }
             }
@@ -80,7 +83,7 @@ namespace WpfApp
 
         public bool UnRegHotKey() {
             bool f = HotKey.UnregisterHotKey(Handle, KeyId);
-
+            LogUtils.writeLog("HotKey:86:注销热键!");
             HotKey.KeyPair.Remove(KeyId);
             return f;
         }

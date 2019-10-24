@@ -38,10 +38,15 @@ namespace WpfApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            LogUtils.writeLog("开始初始化winddowUsb");
             //matchDriveLetterWithSerial();
             // Get data from somewhere and fill in my local ArrayList
             initLeftDataList();
             rightDataList = fileHandle.readDataFile(false);
+            LogUtils.writeLog("WindowUSB:45:初始化右边的数据集！");
+            foreach (String s in rightDataList) {
+                LogUtils.writeLog("WindowUSB:47:右边数据集："+s);
+            }
             // Bind ArrayList with the ListBox
             //LeftListBox.ItemsSource = leftDataList;
             RightListBox.ItemsSource = rightDataList;
@@ -50,6 +55,7 @@ namespace WpfApp
         }
 
         private void initLeftDataList() {
+            LogUtils.writeLog("WindowUSB:57:初始化左边的数据集！");
             leftDataList = findUDisk.matchDriveLetterWithSerial();
             LeftListBox.ItemsSource = leftDataList;
         }

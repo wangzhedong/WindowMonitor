@@ -78,6 +78,7 @@ namespace WpfApp
             }
             catch (Exception ex)
             {
+                LogUtils.writeLog("AutoStart:81"+ex.Message);
                 throw ex;              
                 //return false;
                 //throw;

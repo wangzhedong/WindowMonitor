@@ -84,6 +84,7 @@ namespace WpfApp
                                 if (t.DriveType == DriveType.Removable)
                                 {
                                     //MessageBox.Show("U盘插入,盘符为：" + t.Name);
+                                    LogUtils.writeLog("MonitorUSB:87:U盘插入,盘符为：" + t.Name);
                                     DispatcherOperation d = Dispatcher.BeginInvoke(new Action(() => removeU()), DispatcherPriority.Background);
                                     return true;
                                 }
@@ -91,7 +92,8 @@ namespace WpfApp
                             });
                             break;
                         case DBT_DEVICEREMOVECOMPLETE:
-                            //MessageBox.Show("U盘卸载");
+                            LogUtils.writeLog("MonitorUSB:95:U盘卸载");
+                            //MessageBox.Show("");
                             break;
                         default:
                             break;
@@ -118,6 +120,7 @@ namespace WpfApp
                     {
                         bool boo = saveNum.Contains(b.SerialNum);
                         if (!boo) {
+                            LogUtils.writeLog("MonitorUSB:123:准备卸载u盘：" + b.DriverName);
                             RemoveUsbDevice(b.DriverName);
                         }
                        /* foreach (string num in saveNum) {
@@ -128,6 +131,7 @@ namespace WpfApp
                 }
                 else {
                     foreach (DriverBase b in driverBaseList) {
+                        LogUtils.writeLog("MonitorUSB:134:准备卸载u盘：" + b.DriverName);
                         RemoveUsbDevice(b.DriverName);
                     }
                 }
@@ -186,7 +190,7 @@ namespace WpfApp
                 bool f = hotKey.UnRegHotKey();
                 hotKey.OnHotKey -= HotKey_OnHotKey;
                 hotKey = null;
-                LogUtils.writeLog(f.ToString());
+                LogUtils.writeLog("热键注销成功："+f.ToString());
             }else {
                 e.Cancel = true;
                 this.Hide();
@@ -195,6 +199,7 @@ namespace WpfApp
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            LogUtils.writeLog("开始注册热键");
             hotKey = new HotKey(this, HotKey.KeyFlags.MOD_ALT, System.Windows.Forms.Keys.F7);
             hotKey.OnHotKey += HotKey_OnHotKey;
             if (App.isHideWindow) {

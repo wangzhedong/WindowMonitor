@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfApp
 {
@@ -11,14 +8,14 @@ namespace WpfApp
     {
 
         public static void writeLog(String str) {
-            string currentDirectory = Environment.CurrentDirectory;
+            string currentDirectory = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            string dirPath = currentDirectory + "logs\\";           
             string logFileName = "log.txt";
-            string dirPath = currentDirectory + "\\logs\\";
             if (!Directory.Exists(dirPath)) {
                 Directory.CreateDirectory(dirPath);
             }
             StreamWriter sw = new StreamWriter(dirPath + logFileName, true);
-            sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": "+str);
+            sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": "+str+":");
             sw.Close();
         }
 
